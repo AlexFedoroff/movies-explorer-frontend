@@ -1,2 +1,8 @@
-# movies-explorer-frontend
-frontend дипломной работы yandex.praktikum
+# Дипломная работа
+
+Функциональность:
+
+
+**Посмотреть на сайт↓**
+
+* 
