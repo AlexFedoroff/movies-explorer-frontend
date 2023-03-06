@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { React, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 // import useWindowWidth from 'react-hook-use-window-width';
@@ -27,46 +27,15 @@ export default function App() {
   return (
     <div className="app">
       <Header isLoggedIn={isLoggedIn} />
-      <Switch>
-        <Route exact path="/">
-          <Main />
-        </Route>
-        <Route exact path="/signup">
-          <Register />
-        </Route>
-        <Route exact path="/profile">
-          <Account logOut={logOut} />
-        </Route>
-        <Route exact path="/signin">
-          <Login logIn={logIn} />
-        </Route>
-        <Route exact path="/movies">
-          <Movies />
-        </Route>
-        <Route exact path="/saved-movies">
-          <SavedMovies />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={<Main />} />
+        <Route exact path="/signup" element={<Register />} />
+        <Route exact path="/profile" element={<Account logOut={logOut} />} />
+        <Route exact path="/signin" element={<Login logIn={logIn} />} />
+        <Route exact path="/movies" element={<Movies />} />
+        <Route exact path="/saved-movies" element={<SavedMovies />} />
+      </Routes>
       <Footer />
     </div>
   );
 }
-/*
- <Switch>
-        <Route exact path="/">
-          <Main />
-        </Route>
-        <Route exact path="/signup">
-          <Register />
-        </Route>
-        <Route exact path="/profile">
-          <Account />
-        </Route>
-        <Route exact path="/signin">
-          <Login />
-        </Route>
-        <Route exact path="/movies">
-          <Movies />
-        </Route>
-      </Switch>
-*/

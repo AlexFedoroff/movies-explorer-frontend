@@ -1,13 +1,13 @@
-import { React, Link, useHistory } from 'react-router-dom';
+import { React, Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import headerLogo from '../../images/header_logo.svg';
 
 export default function Login({ logIn }) {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   // временное решение
   const tempLogin = () => {
-    history.push('/movies');
+    navigate('/movies');
     logIn();
   };
 

@@ -14,6 +14,7 @@ export default function Navigation({ isLoggedIn }) {
   const isLandingOpen = location.pathname === '/';
   const [isBurgerOpen, setBurgerOpen] = useState(false);
   let showBurgerIcon = false;
+  let hiddenNavLink = '';
 
   function openBurger() {
     setBurgerOpen(true);
@@ -26,6 +27,9 @@ export default function Navigation({ isLoggedIn }) {
 
   if ((width < 769 && !isLandingOpen)) {
     showBurgerIcon = true;
+  }
+  if (isLoggedIn || !isLandingOpen) {
+    hiddenNavLink = 'navigation__link_hidden';
   }
 
   return (
@@ -44,12 +48,12 @@ export default function Navigation({ isLoggedIn }) {
       </ul>
       <ul className="navigation__list">
         <li>
-          <Link to="/signup" className={`navigation__link ${!isLoggedIn ? '' : 'navigation__link_hidden'}`}>
+          <Link to="/signup" className={`navigation__link ${hiddenNavLink}`}>
             Регистрация
           </Link>
         </li>
         <li>
-          <Link to="/signin" className={`navigation__link navigation__link_active ${!isLoggedIn ? '' : 'navigation__link_hidden'}`}>
+          <Link to="/signin" className={`navigation__link navigation__link_active ${hiddenNavLink}`}>
             Войти
           </Link>
         </li>
