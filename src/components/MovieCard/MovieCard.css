@@ -1,3 +1,17 @@
+@keyframes animate-save-icon {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 .movie-card {
   width: 364px;
   height: 271px;
@@ -36,10 +50,26 @@
 .movie-card__save-icon {
   grid-area: icon;
   padding-left: 3px;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  background-position: 50% 50%;
+  transition: all .3s ease;
+  cursor: pointer;
 }
 
-.movie-card__save-image {
-  
+.movie-card__save-icon:hover {
+  animation: animate-save-icon .4s ease-in 2;
+}
+
+.movie-card__save-icon_save {  
+  background-image: url('../../images/save_icon.svg');
+}
+
+.movie-card__save-icon_saved {  
+  background-image: url('../../images/save_icon_saved.svg');
 }
 
 .movie-card__image {
@@ -50,6 +80,9 @@
   .movie-card {
     width: 339px;
     height: 258px;
+  }
+  .movie-card__save-icon {
+    padding: 0;
   }
 }
 

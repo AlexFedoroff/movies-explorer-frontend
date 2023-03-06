@@ -83,21 +83,24 @@
   .navigation {
     margin-right: 30px;
   }
+  .navigation__burger {
+    width: 44px;
+  }
 }
 
 @media screen and (max-width: 500px) {
-  .navigation__list {
-    display: none;
-  }
   .navigation__list_movies {
     display: none;
-  }
-  /* !на одинаковом разрешении эта иконка присутствует и отсутствует в разных разделах!
-  .navigation__burger_state {
-    display: flex;
-  } */
+  }  
   .navigation {
     justify-content: flex-end;
-    margin-right: 14px;
+    margin-right: 14px;    
+  }
+  .navigation__link {
+    font-size: 10px;
+    line-height: 16px;
+  }
+  .navigation__list {
+    gap: 10px;
   }
 }

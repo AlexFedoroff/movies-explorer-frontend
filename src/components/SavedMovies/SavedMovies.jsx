@@ -5,7 +5,7 @@ import './SavedMovies.css';
 export default function SavedMovies() {
   return (
     <div className="saved-movies">
-      <MoviesCardsList />
+      <MoviesCardsList saved />
     </div>
   );
 }

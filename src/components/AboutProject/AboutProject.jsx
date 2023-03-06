@@ -4,7 +4,7 @@ import './AboutProject.css';
 
 export default function Promo() {
   return (
-    <section className="aboutproject">
+    <section className="aboutproject" id="about-project">
       <div className="aboutproject__header">
         <h2 className="aboutproject__title">О проекте</h2>
       </div>

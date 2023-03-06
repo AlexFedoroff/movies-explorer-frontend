@@ -1,4 +1,4 @@
-import { React } from 'react-router-dom';
+import { Link, React } from 'react-router-dom';
 import './Register.css';
 import headerLogo from '../../images/header_logo.svg';
 
@@ -6,7 +6,9 @@ export default function Register() {
   return (
     <div className="register__popup register__popup_opened">
       <div className="register__container">
-        <img className="register__logo" src={headerLogo} alt="logo" />
+        <Link className="register__logo" to="/">
+          <img src={headerLogo} alt="logo" />
+        </Link>
         <h2 className="register__title">Добро пожаловать!</h2>
         <form className="register__form" name="register-form">
           <label className="register__label" htmlFor="name-input">

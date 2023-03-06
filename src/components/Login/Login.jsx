@@ -1,14 +1,23 @@
-import { React } from 'react-router-dom';
+import { React, Link, useHistory } from 'react-router-dom';
 import './Login.css';
 import headerLogo from '../../images/header_logo.svg';
 
 export default function Login() {
+  const history = useHistory();
+
+  // временное решение
+  const tempLogin = () => {
+    history.push('/movies');
+  };
+
   return (
     <div className="login__popup login__popup_opened">
       <div className="login__container">
-        <img className="login__logo" src={headerLogo} alt="logo" />
+        <Link className="login__logo" to="/">
+          <img src={headerLogo} alt="logo" />
+        </Link>
         <h2 className="login__title">Рады видеть!</h2>
-        <form className="login__form" name="login-form">
+        <form className="login__form" name="login-form" onSubmit={tempLogin}>
           <label className="login__label" htmlFor="email-input">
             E-Mail
             <input

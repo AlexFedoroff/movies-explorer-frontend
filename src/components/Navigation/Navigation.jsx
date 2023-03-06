@@ -23,7 +23,7 @@ export default function Navigation() {
 
   const width = useWindowWidth();
 
-  if ((width < 769 && !isLandingOpen) || (width < 501 && isLandingOpen)) {
+  if ((width < 769 && !isLandingOpen)) {
     showBurgerIcon = true;
   }
 
