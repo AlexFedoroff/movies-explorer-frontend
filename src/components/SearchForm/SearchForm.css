@@ -74,6 +74,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
+  padding: 10px 0 10px 20px;
 }
 
 .searchform__toggle {
@@ -86,7 +87,7 @@
   border-radius: 40px;
   box-shadow: inset -16px 0 0 0 white;
   transition-duration: 200ms;
-  margin: 0 19px 0 15px;
+  margin: 0 15px 0 9px;
 }
 
 .searchform__toggle:after {
@@ -127,6 +128,12 @@
   }
 }
 
+@media screen and (max-width: 800px) {
+ .searchform__short-movies {
+   padding-left: 0px;
+ } 
+}
+
 
 @media screen and (max-width: 500px) {
 
@@ -149,7 +156,8 @@
   }
   .searchform__container {
     flex-direction: column;
-    background-color: white;  
+    background-color: white;
+    margin-bottom: 34px;
   }
   .searchform__short-movies {
     padding-top: 45px;

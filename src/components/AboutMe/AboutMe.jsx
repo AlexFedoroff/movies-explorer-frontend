@@ -20,7 +20,7 @@ export default function AboutMe() {
               Прошел курс веб-разработки, чтобы замедлить старение мозга, а еще, чтобы разговаривать на одном языке со своими web-разработчиками.
             </p>
           </div>
-          <a className="aboutme__github" href="https://github.com/AlexFedoroff">Github</a>
+          <a className="aboutme__github" href="https://github.com/AlexFedoroff" target="_blank" rel="noreferrer">Github</a>
         </div>
         <div className="aboutme__grid_cell-photo">
           <img className="aboutme__photo" src={myPhoto} alt="фотография автора" />

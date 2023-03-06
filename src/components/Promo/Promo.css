@@ -20,6 +20,7 @@
   letter-spacing: -0.04em;
   justify-content: center;
   justify-items: center;
+  max-width: 730px;
 }
 
 .promo__container {
@@ -45,6 +46,7 @@
     font-size: 40px;
     line-height: 52px;
     margin: 350px 0 163px;
+    max-width: 680px;
   }
   .promo {
     padding: 20px 20px 0;

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { React, useState } from 'react';
 import {
   Link, useLocation,
@@ -8,7 +9,7 @@ import './Navigation.css';
 import burgerIcon from '../../images/burger_icon.svg';
 import Burger from '../Burger/Burger';
 
-export default function Navigation() {
+export default function Navigation({ isLoggedIn }) {
   const location = useLocation();
   const isLandingOpen = location.pathname === '/';
   const [isBurgerOpen, setBurgerOpen] = useState(false);
@@ -29,7 +30,7 @@ export default function Navigation() {
 
   return (
     <nav className="navigation">
-      <ul className={`navigation__list_movies ${isLandingOpen || showBurgerIcon ? 'navigation__list_hidden' : ''}`}>
+      <ul className={`navigation__list_movies ${!isLoggedIn || showBurgerIcon ? 'navigation__list_hidden' : ''}`}>
         <li>
           <Link to="/movies" className="navigation__link navigation__link_movies">
             Фильмы
@@ -43,17 +44,17 @@ export default function Navigation() {
       </ul>
       <ul className="navigation__list">
         <li>
-          <Link to="/signup" className={`navigation__link ${isLandingOpen ? '' : 'navigation__link_hidden'}`}>
+          <Link to="/signup" className={`navigation__link ${!isLoggedIn ? '' : 'navigation__link_hidden'}`}>
             Регистрация
           </Link>
         </li>
         <li>
-          <Link to="/signin" className={`navigation__link navigation__link_active ${isLandingOpen ? '' : 'navigation__link_hidden'}`}>
+          <Link to="/signin" className={`navigation__link navigation__link_active ${!isLoggedIn ? '' : 'navigation__link_hidden'}`}>
             Войти
           </Link>
         </li>
         <li>
-          <Link to="/profile" className={`navigation__link navigation__link_account ${isLandingOpen || showBurgerIcon ? 'navigation__link_hidden' : ''}`}>
+          <Link to="/profile" className={`navigation__link navigation__link_account ${!isLoggedIn || showBurgerIcon ? 'navigation__link_hidden' : ''}`}>
             Аккаунт
           </Link>
         </li>
@@ -66,3 +67,7 @@ export default function Navigation() {
     </nav>
   );
 }
+/*
+<Link to="/signup" className={`navigation__link ${isLandingOpen ? '' : 'navigation__link_hidden'}`}>
+<Link to="/profile" className={`navigation__link navigation__link_account ${isLandingOpen || showBurgerIcon || isLoggedIn ? 'navigation__link_hidden' : ''}`}></Link>
+*/

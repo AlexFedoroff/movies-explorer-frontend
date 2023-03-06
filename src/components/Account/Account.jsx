@@ -1,11 +1,16 @@
 import { React } from 'react-router-dom';
 import './Account.css';
 
-export default function Account() {
+export default function Account({ logOut }) {
+  const handleLogOut = () => {
+    // history.push('/signin');
+    logOut();
+  };
+
   return (
     <div className="account__popup account__popup_opened">
       <div className="account__container">
-        <h2 className="account__title">Привет, Александр</h2>
+        <h2 className="account__title">Привет, Александр!</h2>
         <form className="account__form" name="account-form">
           <label className="account__label account__label_name" htmlFor="name-input">
             Имя
@@ -15,7 +20,6 @@ export default function Account() {
               id="name-input"
               placeholder="Имя"
               name="name"
-              value="Александр"
               required
             />
           </label>
@@ -27,7 +31,6 @@ export default function Account() {
               id="email-input"
               placeholder="E-mail"
               name="email"
-              value="test@email.com"
               required
             />
           </label>
@@ -38,14 +41,14 @@ export default function Account() {
             >
               Редактировать
             </button>
-            <button
-              className="account__btn account__btn_logout"
-              type="submit"
-            >
-              Выйти из аккаунта
-            </button>
           </div>
         </form>
+        <button
+          className="account__btn account__btn_logout"
+          onClick={handleLogOut}
+        >
+          Выйти из аккаунта
+        </button>
       </div>
     </div>
   );

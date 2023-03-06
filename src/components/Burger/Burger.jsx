@@ -12,7 +12,7 @@ export default function Burger({ isBurgerOpen, onClose }) {
         <img className="burger__close-icon" src={closeIcon} alt="иконка закрытия меню" onClick={onClose} />
         <ul className="burger__navigation-list">
           <li>
-            <Link to="/" className="burger__navigation-link">
+            <Link to="/" className="burger__navigation-link" onClick={onClose}>
               Главная
             </Link>
           </li>

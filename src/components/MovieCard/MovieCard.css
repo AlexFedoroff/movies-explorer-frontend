@@ -72,6 +72,10 @@
   background-image: url('../../images/save_icon_saved.svg');
 }
 
+.movie-card__save-icon_to-del {  
+  background-image: url('../../images/save_icon_2_del.svg');
+}
+
 .movie-card__image {
   width: 100%;
 }

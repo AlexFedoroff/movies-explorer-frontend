@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 70px 0 44px;
+  margin: 0 40px 0 44px;
   max-width: 1280px;
   width: 100%;
 }
@@ -81,7 +81,7 @@
 
 @media screen and (max-width: 800px) {
   .navigation {
-    margin-right: 30px;
+    margin-right: 0;
   }
   .navigation__burger {
     width: 44px;
@@ -94,7 +94,7 @@
   }  
   .navigation {
     justify-content: flex-end;
-    margin-right: 14px;    
+    margin-right: 4px;    
   }
   .navigation__link {
     font-size: 10px;
@@ -102,5 +102,8 @@
   }
   .navigation__list {
     gap: 10px;
+  }
+  .navigation__link_active {
+    padding: 7px 13px 7px 13px;
   }
 }

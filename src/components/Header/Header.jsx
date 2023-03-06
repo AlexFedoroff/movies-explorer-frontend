@@ -4,7 +4,7 @@ import './Header.css';
 import headerLogo from '../../images/header_logo.svg';
 import Navigation from '../Navigation/Navigation';
 
-export default function Header() {
+export default function Header({ isLoggedIn }) {
   const location = useLocation();
   let showHeader = true;
 
@@ -17,7 +17,7 @@ export default function Header() {
       <Link to="/">
         <img className="header__logo" src={headerLogo} alt="Логотип" />
       </Link>
-      <Navigation />
+      <Navigation isLoggedIn={isLoggedIn} />
     </section>
   );
 }

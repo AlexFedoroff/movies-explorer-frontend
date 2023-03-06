@@ -1,5 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
-import { React } from 'react';
+import { React, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 // import useWindowWidth from 'react-hook-use-window-width';
 
@@ -14,10 +14,19 @@ import Footer from '../Footer/Footer';
 import Account from '../Account/Account';
 
 export default function App() {
-  // const windowWidth = useWindowWidth();
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  // временное решение
+  function logIn() {
+    setLoggedIn(true);
+  }
+
+  function logOut() {
+    setLoggedIn(true);
+  }
+
   return (
     <div className="app">
-      <Header />
+      <Header isLoggedIn={isLoggedIn} />
       <Switch>
         <Route exact path="/">
           <Main />
@@ -26,10 +35,10 @@ export default function App() {
           <Register />
         </Route>
         <Route exact path="/profile">
-          <Account />
+          <Account logOut={logOut} />
         </Route>
         <Route exact path="/signin">
-          <Login />
+          <Login logIn={logIn} />
         </Route>
         <Route exact path="/movies">
           <Movies />

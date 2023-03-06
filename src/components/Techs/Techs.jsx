@@ -12,25 +12,25 @@ export default function Techs() {
         <p className="techs__descr">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
         <ul className="techs__navigation-list">
           <li>
-            <a href="yandex.ru" className="techs__navigation-link">
+            <a href="https://www.w3schools.com/html/" className="techs__navigation-link" target="_blank" rel="noreferrer">
               HTML
             </a>
-            <a href="yandex.ru" className="techs__navigation-link">
+            <a href="https://developer.mozilla.org/ru/docs/Learn/Getting_started_with_the_web/CSS_basics" className="techs__navigation-link" target="_blank" rel="noreferrer">
               CSS
             </a>
-            <a href="yandex.ru" className="techs__navigation-link">
+            <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript" className="techs__navigation-link" target="_blank" rel="noreferrer">
               JS
             </a>
-            <a href="yandex.ru" className="techs__navigation-link">
+            <a href="https://ru.reactjs.org/" className="techs__navigation-link" target="_blank" rel="noreferrer">
               React
             </a>
-            <a href="yandex.ru" className="techs__navigation-link">
+            <a href="https://git-scm.com/" className="techs__navigation-link" target="_blank" rel="noreferrer">
               Git
             </a>
-            <a href="yandex.ru" className="techs__navigation-link">
+            <a href="https://expressjs.com/ru/" className="techs__navigation-link" target="_blank" rel="noreferrer">
               Express.js
             </a>
-            <a href="yandex.ru" className="techs__navigation-link">
+            <a href="https://www.mongodb.com/" className="techs__navigation-link" target="_blank" rel="noreferrer">
               mongoDB
             </a>
           </li>
