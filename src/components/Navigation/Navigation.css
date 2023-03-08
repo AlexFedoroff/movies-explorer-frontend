@@ -47,11 +47,15 @@
   visibility: hidden;
 }
 
+.navigation__list-movies_hidden {
+  visibility: hidden;
+}
+
 .navigation__link_hidden {
   display: none;
 }
 
-.navigation__list_movies {
+.navigation__list-movies {
   display: flex;
   padding: 0;
   margin: 0;
@@ -91,7 +95,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  .navigation__list_movies {
+  .navigation__list-movies {
     display: none;
   }  
   .navigation {

@@ -88,6 +88,7 @@
   
 .login__field:focus {
   outline: none;
+  border-bottom-color: #2BE080;
 }
   
 .login__btn {  

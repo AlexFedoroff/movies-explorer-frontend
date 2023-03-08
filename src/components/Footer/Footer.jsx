@@ -3,15 +3,19 @@ import './Footer.css';
 
 export default function Footer() {
   return (
-    <section className="footer">
+    <footer className="footer">
       <h2 className="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</h2>
       <div className="footer__links-container">
         <p className="footer__year">© 2023</p>
-        <div className="footer__links">
-          <a className="footer__link footer__link_yandex" href="https://practicum.yandex.ru/" target="_blank" rel="noreferrer">Яндекс.Практикум</a>
-          <a className="footer__link footer__link_github" href="https://github.com/" target="_blank" rel="noreferrer">Github</a>
-        </div>
+        <ul className="footer__links">
+          <li className="footer__link footer__link_yandex">
+            <a className="footer__link-url" href="https://practicum.yandex.ru/" target="_blank" rel="noreferrer">Яндекс.Практикум</a>
+          </li>
+          <li className="footer__link footer__link_github">
+            <a className="footer__link-url" href="https://github.com/" target="_blank" rel="noreferrer">Github</a>
+          </li>
+        </ul>
       </div>
-    </section>
+    </footer>
   );
 }

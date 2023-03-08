@@ -12,7 +12,7 @@ export default function Login({ logIn }) {
   };
 
   return (
-    <div className="login__popup login__popup_opened">
+    <main className="login__popup login__popup_opened">
       <div className="login__container">
         <Link className="login__logo" to="/">
           <img src={headerLogo} alt="logo" />
@@ -59,6 +59,6 @@ export default function Login({ logIn }) {
           </div>
         </form>
       </div>
-    </div>
+    </main>
   );
 }

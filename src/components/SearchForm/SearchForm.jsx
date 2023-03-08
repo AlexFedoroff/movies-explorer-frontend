@@ -6,7 +6,7 @@ import findIcon from '../../images/find_icon.svg';
 
 export default function SearchForm() {
   return (
-    <div className="searchform">
+    <section className="searchform">
       <div className="searchform__container">
         <form className="searchform__form">
           <img src={searchIcon} alt="иконка поиска" className="searchform_search-icon" />
@@ -33,6 +33,6 @@ export default function SearchForm() {
           </label>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

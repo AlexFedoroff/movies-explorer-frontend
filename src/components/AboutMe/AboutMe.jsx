@@ -10,7 +10,7 @@ export default function AboutMe() {
         <h2 className="aboutme__title">Студент</h2>
       </div>
       <div className="aboutme__grid">
-        <div className="aboutme__grid_cell-info">
+        <div className="aboutme__grid-cell-info">
           <div className="aboutme__info">
             <p className="aboutme__name">Александр</p>
             <p className="aboutme__post">IT-менеджер, 43 года</p>
@@ -22,7 +22,7 @@ export default function AboutMe() {
           </div>
           <a className="aboutme__github" href="https://github.com/AlexFedoroff" target="_blank" rel="noreferrer">Github</a>
         </div>
-        <div className="aboutme__grid_cell-photo">
+        <div className="aboutme__grid-cell-photo">
           <img className="aboutme__photo" src={myPhoto} alt="фотография автора" />
         </div>
       </div>

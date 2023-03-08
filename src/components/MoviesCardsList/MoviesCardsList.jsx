@@ -4,17 +4,17 @@ import MovieCard from '../MovieCard/MovieCard';
 
 export default function MoviesCardsList({ saved }) {
   return (
-    <div className="movies-cards-list">
-      <div className="movies-cards-list__container">
+    <section className="movies-cards-list">
+      <ul className="movies-cards-list__container">
         <MovieCard savedMovies={saved} isCardSaved={false} />
         <MovieCard savedMovies={saved} isCardSaved />
         <MovieCard savedMovies={saved} isCardSaved={false} />
         <MovieCard savedMovies={saved} isCardSaved={false} />
         <MovieCard savedMovies={saved} isCardSaved={false} />
-      </div>
+      </ul>
       <button className="movies-cards-list__more-btn">
         Еще
       </button>
-    </div>
+    </section>
   );
 }

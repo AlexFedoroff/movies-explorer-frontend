@@ -8,7 +8,7 @@ export default function Account({ logOut }) {
   };
 
   return (
-    <div className="account__popup account__popup_opened">
+    <main className="account__popup account__popup_opened">
       <div className="account__container">
         <h2 className="account__title">Привет, Александр!</h2>
         <form className="account__form" name="account-form">
@@ -50,6 +50,6 @@ export default function Account({ logOut }) {
           Выйти из аккаунта
         </button>
       </div>
-    </div>
+    </main>
   );
 }

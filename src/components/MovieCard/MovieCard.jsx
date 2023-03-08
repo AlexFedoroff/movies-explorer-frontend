@@ -14,7 +14,7 @@ export default function MoviesCard({ savedMovies, isCardSaved }) {
   }
 
   return (
-    <div className="movie-card">
+    <li className="movie-card">
       <div className="movie-card__title-conainer">
         <p className="movie-card__title">33 слова о дизайне</p>
         <p className="movie-card__duration">1ч 47м</p>
@@ -25,6 +25,6 @@ export default function MoviesCard({ savedMovies, isCardSaved }) {
       </div>
       <img className="movie-card__image" src={sampleImage} alt="изображение из фильма" />
 
-    </div>
+    </li>
   );
 }

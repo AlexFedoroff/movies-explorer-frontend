@@ -4,7 +4,7 @@ import headerLogo from '../../images/header_logo.svg';
 
 export default function Register() {
   return (
-    <div className="register__popup register__popup_opened">
+    <main className="register__popup register__popup_opened">
       <div className="register__container">
         <Link className="register__logo" to="/">
           <img src={headerLogo} alt="logo" />
@@ -63,6 +63,6 @@ export default function Register() {
           </div>
         </form>
       </div>
-    </div>
+    </main>
   );
 }

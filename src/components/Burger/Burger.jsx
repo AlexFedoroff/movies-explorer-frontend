@@ -26,7 +26,7 @@ export default function Burger({ isBurgerOpen, onClose }) {
               Сохраненные
             </Link>
           </li>
-          <li className="burger__navigation-item_account">
+          <li className="burger__navigation-item-account">
             <Link to="/profile" className="burger__navigation-link burger__navigation-link_account" onClick={onClose}>
               Аккаунт
             </Link>

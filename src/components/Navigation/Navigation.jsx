@@ -34,7 +34,7 @@ export default function Navigation({ isLoggedIn }) {
 
   return (
     <nav className="navigation">
-      <ul className={`navigation__list_movies ${!isLoggedIn || showBurgerIcon ? 'navigation__list_hidden' : ''}`}>
+      <ul className={`navigation__list-movies ${!isLoggedIn || showBurgerIcon ? 'navigation__list-movies_hidden' : ''}`}>
         <li>
           <Link to="/movies" className="navigation__link navigation__link_movies">
             Фильмы

@@ -89,6 +89,7 @@
 
 .register__field:focus {
   outline: none;
+  border-bottom-color: #2BE080;
 }
     
 .register__btn {  

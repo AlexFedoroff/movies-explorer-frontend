@@ -57,7 +57,15 @@
 }
 
 .footer__links {
-  /*min-width: 200px;*/
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__link-url {
+  text-decoration: none;
+  color: black;
 }
 
 @media screen and (max-width: 1024px) {  
@@ -73,7 +81,6 @@
     margin-top: 20px;
   }
   .footer__links {
-    display: flex;
     flex-direction: column;
   }
   .footer {

@@ -8,19 +8,19 @@ export default function Portfolio() {
       <nav className="portfolio__navigation">
         <ul className="portfolio__navigation-list">
           <li className="portfolio__navigation-item">
-            <a href="yandex.ru" className="portfolio__navigation-link">
+            <a href="https://github.com/AlexFedoroff/how-to-learn" className="portfolio__navigation-link">
               Статичный сайт
               <span className="portfolio__navigation-link-arrow ">↗</span>
             </a>
           </li>
           <li className="portfolio__navigation-item">
-            <a href="yandex.ru" className="portfolio__navigation-link">
+            <a href="https://github.com/AlexFedoroff/russian-travel" className="portfolio__navigation-link">
               Адаптивный сайт
               <span className="portfolio__navigation-link-arrow ">↗</span>
             </a>
           </li>
           <li className="portfolio__navigation-item">
-            <a href="yandex.ru" className="portfolio__navigation-link portfolio__navigation-link_noborder">
+            <a href="https://github.com/AlexFedoroff/react-mesto-api-full" className="portfolio__navigation-link portfolio__navigation-link_noborder">
               Одностраничное приложение
               <span className="portfolio__navigation-link-arrow ">↗</span>
             </a>

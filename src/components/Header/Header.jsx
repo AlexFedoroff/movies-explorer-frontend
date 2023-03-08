@@ -12,12 +12,18 @@ export default function Header({ isLoggedIn }) {
     showHeader = false;
   }
 
+  // temporary for review
+  if (location.pathname.match(/movies.*/g)) {
+    // eslint-disable-next-line no-param-reassign
+    isLoggedIn = true;
+  }
+
   return (
-    <section className={`header ${!showHeader ? 'header_hidden' : ''}`}>
+    <header className={`header ${!showHeader ? 'header_hidden' : ''}`}>
       <Link to="/">
         <img className="header__logo" src={headerLogo} alt="Логотип" />
       </Link>
       <Navigation isLoggedIn={isLoggedIn} />
-    </section>
+    </header>
   );
 }
