@@ -1,0 +1,112 @@
+@keyframes animate-save-icon {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.movie-card {
+  width: 364px;
+  height: 271px;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.movie-card__title-conainer {    
+  display: grid;
+  grid-template-columns: 87% 13%;
+  grid-template-areas:
+  "title icon"
+  "duration icon";
+  gap: 0px 0px;
+  align-items: center;
+}
+
+.movie-card__title {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  grid-area: title;
+  padding: 13px 0 10px 14px;
+  margin: 0;
+}
+
+.movie-card__duration {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;    
+  color: #A0A0A0;
+  grid-area: duration;
+  padding: 0 0 13px 14px;
+  margin: 0;
+}
+
+.movie-card__save-icon {
+  grid-area: icon;
+  padding-left: 3px;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  background-position: 50% 50%;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.movie-card__save-icon:hover {
+  animation: animate-save-icon .4s ease-in 2;
+}
+
+.movie-card__save-icon_save {  
+  background-image: url('../../images/save_icon.svg');
+}
+
+.movie-card__save-icon_saved {  
+  background-image: url('../../images/save_icon_saved.svg');
+}
+
+.movie-card__save-icon_to-del {  
+  background-image: url('../../images/save_icon_2_del.svg');
+}
+
+.movie-card__image {
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .movie-card {
+    width: 339px;
+    height: 258px;
+  }
+  .movie-card__save-icon {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .movie-card {
+    width: 300px;
+    height: 236px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .movie-card {
+    width: 339px;
+    height: 258px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .movie-card {
+    width: 300px;
+    height: 236px;
+  }
+}

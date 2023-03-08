@@ -1,0 +1,4 @@
+const BACKEND_URL = 'http://localhost:3000';
+const MOVIES_URL = 'https://api.nomoreparties.co/beatfilm-movies';
+
+export { BACKEND_URL, MOVIES_URL };
