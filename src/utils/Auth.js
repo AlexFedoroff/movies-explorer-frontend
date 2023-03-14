@@ -16,24 +16,24 @@ class Auth {
     });
   }
 
-  signUp(data) {
+  signUp(email, pwd, name) {
     return fetch(`${this.backendAddress}/signup`, {
       method: 'POST',
       withCredentials: true,
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password: data.password, email: data.email }),
+      body: JSON.stringify({ password: pwd, email, name }),
     })
       .then((res) => this.checkRes(res));
   }
 
-  signIn(data) {
+  signIn(email, pwd) {
     return fetch(`${this.backendAddress}/signin`, {
       method: 'POST',
       withCredentials: true,
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password: data.password, email: data.email }),
+      body: JSON.stringify({ password: pwd, email }),
     })
       .then((res) => this.checkRes(res));
   }

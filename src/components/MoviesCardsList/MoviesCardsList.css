@@ -33,6 +33,16 @@
   border-width: 1px;
   cursor: pointer;
 }
+
+.movies-cards-list__more-btn_hidden {
+  visibility: hidden;
+}
+
+.movies-card-list__msg {
+  margin: 0;
+  padding: 0;
+}
+
 @media screen and (max-width: 900px) {
   .movies-cards-list__container {
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));

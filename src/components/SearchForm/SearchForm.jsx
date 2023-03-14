@@ -1,14 +1,35 @@
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import './SearchForm.css';
-import { React } from 'react-router-dom';
+import { React, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import searchIcon from '../../images/search_icon.svg';
 import findIcon from '../../images/find_icon.svg';
 
-export default function SearchForm() {
+export default function SearchForm(props) {
+  const location = useLocation();
+  const url = location.pathname;
+
+  const [movieReq, setMovieReq] = useState(url === '/movies' && localStorage.getItem('searchMovieReq') ? localStorage.getItem('searchMovieReq') : '');
+
+  const defaultValue = localStorage.getItem('searchMovieReq') ? localStorage.getItem('searchMovieReq') : '';
+  const storedChecked = localStorage.getItem('shortMoviesChecked') ? localStorage.getItem('shortMoviesChecked') : 'false';
+  const defaultChecked = (storedChecked === 'true');
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.handleSearch(movieReq);
+  }
+
+  function handleChange(e) {
+    const input = e.target;
+    setMovieReq(input.value);
+  }
+
   return (
     <section className="searchform">
       <div className="searchform__container">
-        <form className="searchform__form">
+        <form className="searchform__form" onSubmit={handleSubmit}>
           <img src={searchIcon} alt="иконка поиска" className="searchform_search-icon" />
           <input
             type="text"
@@ -16,6 +37,8 @@ export default function SearchForm() {
             id="searchform__input"
             placeholder="Фильм"
             name="input"
+            defaultValue={defaultValue}
+            onChange={handleChange}
             required
           />
           <button
@@ -27,7 +50,14 @@ export default function SearchForm() {
 
         </form>
         <div className="searchform__short-movies">
-          <input type="checkbox" name="toggle" className="searchform__toggle" id="searchform-toggle" />
+          <input
+            type="checkbox"
+            name="toggle"
+            className="searchform__toggle"
+            checked={defaultChecked}
+            onChange={props.handleShortFilms}
+            id="searchform-toggle"
+          />
           <label className="searchform__short-label" htmlFor="toggle">
             Короткометражки
           </label>

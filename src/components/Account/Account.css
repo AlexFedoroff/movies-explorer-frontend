@@ -55,10 +55,7 @@
 }
 
 .account__label_name {
-  border-bottom: solid;  
-  border-bottom-width: 1px;
-  border-color: #E8E8E8;
-  padding: 0 0 16px 0;
+  padding: 0;
 }
 
 .account__field {
@@ -76,6 +73,11 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
+}
+
+.account__btn_disabled {
+  cursor: auto;
+  color: #C2C2C2;
 }
 
 .account__btn_logout {
@@ -96,6 +98,20 @@
   .account__form {
     padding-left: 10px;
   }
+}
+
+.account__input-error {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 12px;
+  color: #EE3465;
+}
+
+.account__input-error_name {
+  border-bottom: solid;  
+  border-bottom-width: 1px;
+  border-color: #E8E8E8;
 }
 
 @media screen and (max-width: 800px) {

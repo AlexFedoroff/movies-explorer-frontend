@@ -102,7 +102,13 @@
   width: 100%;
   border-radius: 3px;
 }
-  
+
+.login__btn_disabled {
+  cursor: auto;
+  color: #C2C2C2;
+  background-color: #F8F8F8;
+}
+
 .login__lnk-register {
   background-color: white;
   color: #2BE080;
