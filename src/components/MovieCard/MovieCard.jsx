@@ -40,13 +40,14 @@ export default function MoviesCard(props) {
           onClick={props.saved ? handleDeleteClick : handleSaveClick}
         />
       </div>
-      <img
-        className="movie-card__image"
-        src={url === '/movies' ? `https://api.nomoreparties.co/${props.movie.image.url}`
-          : props.movie.image}
-        alt={props.movie.nameRU}
-      />
-
+      <a href={props.movie.trailerLink} className="movie-card__image-link" target="_blank" rel="noreferrer">
+        <img
+          className="movie-card__image"
+          src={url === '/movies' ? `https://api.nomoreparties.co/${props.movie.image.url}`
+            : props.movie.image}
+          alt={props.movie.nameRU}
+        />
+      </a>
     </li>
   );
 }

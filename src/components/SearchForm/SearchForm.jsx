@@ -11,6 +11,7 @@ export default function SearchForm(props) {
   const url = location.pathname;
 
   const [movieReq, setMovieReq] = useState(url === '/movies' && localStorage.getItem('searchMovieReq') ? localStorage.getItem('searchMovieReq') : '');
+  const [isReqValid, setIsReqValid] = useState(false);
 
   const defaultValue = localStorage.getItem('searchMovieReq') ? localStorage.getItem('searchMovieReq') : '';
   const storedChecked = localStorage.getItem('shortMoviesChecked') ? localStorage.getItem('shortMoviesChecked') : 'false';
@@ -18,12 +19,25 @@ export default function SearchForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.handleSearch(movieReq);
+    if (isReqValid) {
+      props.handleSearch(movieReq);
+    } else {
+      props.setPopupMessageOpen({
+        isOpen: true,
+        successful: false,
+        text: 'Строка поиска должа быть не менее 2х символов',
+      });
+    }
   }
 
   function handleChange(e) {
     const input = e.target;
     setMovieReq(input.value);
+    if (input.value.length < 2) {
+      setIsReqValid(false);
+    } else {
+      setIsReqValid(true);
+    }
   }
 
   return (

@@ -1,4 +1,5 @@
-const BACKEND_URL = 'http://localhost:2900';
+// const BACKEND_URL = 'http://localhost:2900';
+const BACKEND_URL = 'https://api.alexfedoroff.students.nomoredomainsclub.ru';
 const MOVIES_URL = 'https://api.nomoreparties.co/beatfilm-movies';
 
 export { BACKEND_URL, MOVIES_URL };

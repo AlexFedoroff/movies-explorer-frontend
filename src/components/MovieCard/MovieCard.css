@@ -82,6 +82,12 @@
   object-fit: cover;
 }
 
+.movie-card__image-link {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
 @media screen and (max-width: 900px) {
   .movie-card {
     width: 339px;

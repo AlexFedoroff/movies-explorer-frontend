@@ -76,6 +76,7 @@ export default function SavedMovies(props) {
         handleSearch={handleSearch}
         handleShortFilms={handleShortFilms}
         shortMovies={shortMovies}
+        setPopupMessageOpen={props.setPopupMessageOpen}
       />
       {!hideList && (
         <MoviesCardsList

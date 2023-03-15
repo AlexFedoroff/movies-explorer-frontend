@@ -36,11 +36,9 @@ export default function App() {
   }
 
   function handleLogin(email, pwd) {
-    // setIsLoading(true);
     Auth.signIn(email, pwd)
-      .then((user) => {
+      .then(() => {
         setLoggedIn(true);
-        setCurrentUser(user);
         navigate('/movies');
       })
       .catch(() => {
@@ -57,9 +55,11 @@ export default function App() {
   function handleRegister(email, password, name) {
     Auth.signUp(email, password, name)
       .then((user) => {
-        setLoggedIn(true);
-        setCurrentUser(user);
-        navigate('/movies');
+        if (user._id) {
+          // setLoggedIn(true);
+          // navigate('/movies');
+          handleLogin(email, password);
+        }
       })
       .catch((err) => {
         setPopupMessageOpen({
@@ -69,7 +69,7 @@ export default function App() {
         });
       });
   }
-  // изменение данных пользователя
+
   function handleEditProfile(name, email) {
     Api.editProfile(name, email)
       .then((user) => {
@@ -89,7 +89,6 @@ export default function App() {
       });
   }
 
-  // выход из приложения
   function handleLogOut() {
     Auth
       .signOut()
@@ -140,9 +139,9 @@ export default function App() {
       }));
   }
 
-  // сохраненные фильмы
+  // saved movies
   useEffect(() => {
-    if (isLoggedIn && currentUser) {
+    if (isLoggedIn && currentUser._id) {
       Api
         .getMovies()
         .then((data) => {
@@ -158,9 +157,8 @@ export default function App() {
   }, [isLoggedIn]);
 
   // getting user info
-
   useEffect(() => {
-    if (currentUser._id) {
+    if (isLoggedIn) {
       Api.getUserInfo()
         .then((user) => {
           setCurrentUser(user);
@@ -185,6 +183,10 @@ export default function App() {
         navigate('/');
       });
   }, []);
+  // return from 404 page
+  function handleBack() {
+    navigate(-1);
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -244,6 +246,7 @@ export default function App() {
               )}
           />
           <Route
+            exact
             path="/profile"
             element={(
               <ProtectedRoute isLoggedIn={isLoggedIn}>
@@ -257,7 +260,7 @@ export default function App() {
           <Route
             path="*"
             element={
-              <NotFound />
+              <NotFound handleBack={handleBack} />
           }
           />
         </Routes>

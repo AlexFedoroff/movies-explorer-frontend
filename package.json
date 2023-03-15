@@ -1,6 +1,6 @@
 {
   "name": "movies-explorer-frontend",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build"
+    "deploy": "npm run build && scp -r ./build/* praktikum@84.201.165.23:/home/praktikum/movies-explorer-frontend/build"
   },
   "eslintConfig": {
     "extends": [
