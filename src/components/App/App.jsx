@@ -100,9 +100,9 @@ export default function App() {
     Auth
       .signOut()
       .then(() => {
-        localStorage.clear();
         setCurrentUser({});
         setLoggedIn(false);
+        localStorage.clear();
         navigate('/');
       })
       .catch((err) => setPopupMessageOpen({
