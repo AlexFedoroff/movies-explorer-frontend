@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { BACKEND_URL } from './data';
+import { BACKEND_URL, MOVIES_API_PREFIX } from './data';
 
 class Api {
   constructor({ address, headers }) {
@@ -50,9 +50,11 @@ class Api {
       year: data.year,
       description: data.description,
       // image: data.image.url,
-      image: `https://api.nomoreparties.co${data.image.url}`,
+      // image: `https://api.nomoreparties.co${data.image.url}`,
+      image: MOVIES_API_PREFIX + data.image.url,
       trailerLink: data.trailerLink,
-      thumbnail: data.thumbnail ? data.thumbnail : `https://api.nomoreparties.co${data.image.url}`,
+      // thumbnail: data.thumbnail ? data.thumbnail : `https://api.nomoreparties.co${data.image.url}`,
+      thumbnail: data.thumbnail ? data.thumbnail : MOVIES_API_PREFIX + data.image.url,
       movieId: data.id,
       nameRU: data.nameRU,
       nameEN: data.nameEN,

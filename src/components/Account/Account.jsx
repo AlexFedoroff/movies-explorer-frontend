@@ -2,6 +2,7 @@ import { React } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import './Account.css';
 import CurrentUserContext from '../../context/CurrentUserContext';
+import { APP_MSGS, NAME_MIN_LENGTH } from '../../utils/data';
 
 export default function Account(props) {
   const currentUser = useContext(CurrentUserContext);
@@ -22,7 +23,7 @@ export default function Account(props) {
       setEmail(input.value);
       setIsEmailValid(validEmail);
       if (!validEmail) {
-        setEmailError('Неверный формат почты');
+        setEmailError(APP_MSGS.EML_FORMAT_ERR);
       } else {
         setEmailError('');
       }
@@ -31,11 +32,11 @@ export default function Account(props) {
       setIsNameValid(validName);
       setName(input.value);
       if (input.value.length < 1) {
-        setNameError('Поле должно быть заполнено');
-      } else if (input.value.length < 2) {
-        setNameError('Имя должно быть длиной не менее 2 символов');
+        setNameError(APP_MSGS.FIELD_EMPTY);
+      } else if (input.value.length < NAME_MIN_LENGTH) {
+        setNameError(APP_MSGS.NAME_LENGTH_ERR);
       } else if (!validName) {
-        setNameError('Имя может содержать только буквы, пробел или дефис');
+        setNameError(APP_MSGS.NAME_ERR);
       } else {
         setNameError('');
       }

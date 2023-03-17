@@ -1,6 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable max-len */
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import {
+  Route, Routes, useLocation, useNavigate,
+} from 'react-router-dom';
 import { React, useState, useEffect } from 'react';
 
 import './App.css';
@@ -18,6 +20,7 @@ import PopupMessage from '../PopupMessage/PopupMessage';
 import CurrentUserContext from '../../context/CurrentUserContext';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import NotFound from '../NotFound/NotFound';
+import { APP_MSGS } from '../../utils/data';
 
 export default function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -25,6 +28,8 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [savedMoviesList, setSavedMoviesList] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
+
   const [isPopupMessageOpen, setPopupMessageOpen] = useState({
     isOpen: false,
     successful: true,
@@ -47,7 +52,7 @@ export default function App() {
         setPopupMessageOpen({
           isOpen: true,
           successful: false,
-          text: 'Ошибка при авторизации',
+          text: APP_MSGS.AUTH_ERR,
         });
       });
   }
@@ -56,8 +61,6 @@ export default function App() {
     Auth.signUp(email, password, name)
       .then((user) => {
         if (user._id) {
-          // setLoggedIn(true);
-          // navigate('/movies');
           handleLogin(email, password);
         }
       })
@@ -77,14 +80,18 @@ export default function App() {
         setPopupMessageOpen({
           isOpen: true,
           successful: true,
-          text: 'Данные успешно изменены',
+          text: APP_MSGS.DATA_CHANGED_SUCCESS,
         });
       })
       .catch((err) => {
+        let errMsg = APP_MSGS.PROFILE_CHANGE_ERR;
+        if (err.status === 409) {
+          errMsg = APP_MSGS.EMAIL_CHANGE_CONFLICT;
+        }
         setPopupMessageOpen({
           isOpen: true,
           successful: false,
-          text: err.message,
+          text: errMsg,
         });
       });
   }
@@ -93,6 +100,7 @@ export default function App() {
     Auth
       .signOut()
       .then(() => {
+        localStorage.clear();
         setCurrentUser({});
         setLoggedIn(false);
         navigate('/');
@@ -172,11 +180,12 @@ export default function App() {
 
   // check auth
   useEffect(() => {
+    const url = location.pathname;
     Api.getUserInfo()
       .then((user) => {
         setLoggedIn(true);
         setCurrentUser(user);
-        navigate('/movies');
+        navigate(url);
       })
       .catch(() => {
         setLoggedIn(false);
@@ -185,7 +194,7 @@ export default function App() {
   }, []);
   // return from 404 page
   function handleBack() {
-    navigate(-1);
+    navigate(-2);
   }
 
   return (

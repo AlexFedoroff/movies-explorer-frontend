@@ -1,5 +1,7 @@
+import { SHORT_MOVIE_DURATION } from './data';
+
 function filterShortMovies(movies) {
-  return movies.filter((movie) => movie.duration <= 40);
+  return movies.filter((movie) => movie.duration <= SHORT_MOVIE_DURATION);
 }
 
 function filterMovies(movies, userReq, shortMoviesCheckbox) {

@@ -8,6 +8,7 @@ import useWindowWidth from '../../utils/CustomHooks';
 import './Navigation.css';
 import burgerIcon from '../../images/burger_icon.svg';
 import Burger from '../Burger/Burger';
+import { WIDTH_TO_SHOW_BURGER } from '../../utils/data';
 
 export default function Navigation({ isLoggedIn }) {
   const location = useLocation();
@@ -25,7 +26,7 @@ export default function Navigation({ isLoggedIn }) {
 
   const width = useWindowWidth();
 
-  if ((width < 769 && !isLandingOpen)) {
+  if ((width < WIDTH_TO_SHOW_BURGER && !isLandingOpen)) {
     showBurgerIcon = true;
   }
   if (isLoggedIn || !isLandingOpen) {

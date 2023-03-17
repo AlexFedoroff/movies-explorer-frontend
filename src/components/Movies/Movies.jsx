@@ -9,6 +9,7 @@ import moviesApi from '../../utils/MoviesApi';
 import CurrentUserContext from '../../context/CurrentUserContext';
 import Preloader from '../Preloader/Preloader';
 import { filterMovies, filterShortMovies } from '../../utils/MovieFilters';
+import { APP_MSGS } from '../../utils/data';
 
 export default function Movies(props) {
   const currentUser = useContext(CurrentUserContext);
@@ -25,7 +26,7 @@ export default function Movies(props) {
       props.setPopupMessageOpen({
         isOpen: true,
         successful: false,
-        text: 'Ничего не найдено',
+        text: APP_MSGS.NOT_FOUND_ERR,
       });
       setNothingFound(true);
     } else {
@@ -58,7 +59,7 @@ export default function Movies(props) {
         .catch(() => props.setPopupMessageOpen({
           isOpen: true,
           successful: false,
-          text: 'Ошибка при запросе',
+          text: APP_MSGS.REQUES_ERR,
         }))
         .finally(() => props.setIsLoading(false));
     } else {
@@ -106,6 +107,7 @@ export default function Movies(props) {
         handleSearch={handleSearch}
         handleShortFilms={handleShortFilms}
         shortMovies={shortMovies}
+        setPopupMessageOpen={props.setPopupMessageOpen}
       />
 
       <Preloader isOpen={props.isLoading} />

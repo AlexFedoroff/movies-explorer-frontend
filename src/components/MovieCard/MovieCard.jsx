@@ -7,15 +7,15 @@ export default function MoviesCard(props) {
   const location = useLocation();
   const url = location.pathname;
 
-  // сохранение фильма
+  // save movie
   function handleSaveClick() {
     props.onSaveClick(props.movie);
   }
-  // удаление фильма
+  // delete movie
   function handleDeleteClick() {
     props.onDeleteClick(props.movie);
   }
-
+  // changing car icons depends on path and saved state
   let iconClass = 'save';
 
   if (url === '/saved-movies') {

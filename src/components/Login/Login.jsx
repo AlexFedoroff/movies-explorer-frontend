@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import './Login.css';
 import headerLogo from '../../images/header_logo.svg';
+import { APP_MSGS } from '../../utils/data';
 
 export default function Login(props) {
   const [email, setEmail] = useState('');
@@ -20,7 +21,7 @@ export default function Login(props) {
     const validEmail = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i.test(input.value);
     setIsEmailValid(validEmail);
     if (!validEmail) {
-      setEmailError('Неверный формат email-адреса');
+      setEmailError(APP_MSGS.WRONG_EML_ERR);
     } else {
       setEmailError('');
     }

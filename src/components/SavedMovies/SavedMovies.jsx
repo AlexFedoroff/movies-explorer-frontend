@@ -6,6 +6,7 @@ import MoviesCardsList from '../MoviesCardsList/MoviesCardsList';
 import SearchForm from '../SearchForm/SearchForm';
 import './SavedMovies.css';
 import { filterMovies, filterShortMovies } from '../../utils/MovieFilters';
+import { APP_MSGS } from '../../utils/data';
 
 export default function SavedMovies(props) {
   const [shortMovies, setShortMovies] = useState(false); // checkbox
@@ -21,7 +22,7 @@ export default function SavedMovies(props) {
       props.setPopupMessageOpen({
         isOpen: true,
         successful: false,
-        text: 'Ничего не найдено',
+        text: APP_MSGS.NOT_FOUND_ERR,
       });
     } else {
       setNothingFound(false);
@@ -34,14 +35,12 @@ export default function SavedMovies(props) {
   function handleShortFilms() {
     if (!shortMovies) {
       setShortMovies(true);
-      localStorage.setItem('shortMoviesChecked', true);
       setShowedMovies(filterShortMovies(filteredMovies));
       if (filterShortMovies(filteredMovies).length === 0) {
         setNothingFound(true);
       } else { setNothingFound(false); }
     } else {
       setShortMovies(false);
-      localStorage.setItem('shortMoviesChecked', false);
       if (filteredMovies.length === 0) { setNothingFound(true); } else { setNothingFound(false); }
       setShowedMovies(filteredMovies);
     }
@@ -49,7 +48,7 @@ export default function SavedMovies(props) {
 
   // checkbox from local storage
   useEffect(() => {
-    if (localStorage.getItem('shortMoviesChecked') === 'true') {
+    if (shortMovies) {
       setShortMovies(true);
       setShowedMovies(filterShortMovies(props.savedMoviesList));
     } else {
@@ -70,6 +69,7 @@ export default function SavedMovies(props) {
   }, [props.savedMoviesList]);
 
   const hideList = (nothingFound || !showedMovies);
+  // console.log(shortMovies);
   return (
     <main className="saved-movies">
       <SearchForm

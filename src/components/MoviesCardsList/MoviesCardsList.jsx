@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { React, useLocation } from 'react-router-dom';
 import MovieCard from '../MovieCard/MovieCard';
 import Preloader from '../Preloader/Preloader';
-import { RESOLUTIONS } from '../../utils/data';
+import { RESOLUTIONS, MIN_CARDS_TO_SHOW_MORE } from '../../utils/data';
 import useWindowWidth from '../../utils/CustomHooks';
 
 export default function MoviesCardsList(props) {
@@ -21,8 +21,8 @@ export default function MoviesCardsList(props) {
     if (!displayMovieList || url !== '/movies') {
       return false;
     }
-    // if something left to show
-    if ((displayMovieList.length > 3) && (props.moviesList.length >= (cardsToDisplay.toAdd + displayMovieList.length) - 1)) {
+    // if there is something left to show
+    if ((displayMovieList.length > MIN_CARDS_TO_SHOW_MORE) && (props.moviesList.length >= (cardsToDisplay.toAdd + displayMovieList.length) - 1)) {
       return true;
     }
     return false;

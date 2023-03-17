@@ -7,6 +7,7 @@ import { useState } from 'react';
 
 import './Register.css';
 import headerLogo from '../../images/header_logo.svg';
+import { APP_MSGS, NAME_MIN_LENGTH } from '../../utils/data';
 
 export default function Register(props) {
   const [email, setEmail] = useState('');
@@ -24,11 +25,11 @@ export default function Register(props) {
     const validName = /^[a-zA-Zа-яА-Я- ]+$/.test(input.value);
     setIsNameValid(validName);
     if (input.value.length < 1) {
-      setNameError('Поле не должно быть пустым');
-    } else if (input.value.length < 2) {
-      setNameError('Имя не должно быть длиной менее 2 символов');
+      setNameError(APP_MSGS.FIELD_EMPTY);
+    } else if (input.value.length < NAME_MIN_LENGTH) {
+      setNameError(APP_MSGS.NAME_LENGTH_ERR);
     } else if (!validName) {
-      setNameError('Имя может содержать только буквы, пробел или дефис');
+      setNameError(APP_MSGS.NAME_ERR);
     } else {
       setNameError('');
     }
@@ -43,7 +44,7 @@ export default function Register(props) {
     setEmail(input.value);
     setIsValidEmail(validEmail);
     if (!validEmail) {
-      setEmailError('Неверный формат эл.почты');
+      setEmailError(APP_MSGS.EML_FORMAT_ERR);
     } else {
       setEmailError('');
     }

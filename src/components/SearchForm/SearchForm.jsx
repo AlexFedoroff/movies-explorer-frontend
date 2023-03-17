@@ -5,17 +5,23 @@ import { React, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import searchIcon from '../../images/search_icon.svg';
 import findIcon from '../../images/find_icon.svg';
+import { APP_MSGS } from '../../utils/data';
 
 export default function SearchForm(props) {
   const location = useLocation();
   const url = location.pathname;
 
   const [movieReq, setMovieReq] = useState(url === '/movies' && localStorage.getItem('searchMovieReq') ? localStorage.getItem('searchMovieReq') : '');
-  const [isReqValid, setIsReqValid] = useState(false);
+  const [isReqValid, setIsReqValid] = useState(true);
 
-  const defaultValue = localStorage.getItem('searchMovieReq') ? localStorage.getItem('searchMovieReq') : '';
+  let defaultValue = localStorage.getItem('searchMovieReq') ? localStorage.getItem('searchMovieReq') : '';
   const storedChecked = localStorage.getItem('shortMoviesChecked') ? localStorage.getItem('shortMoviesChecked') : 'false';
-  const defaultChecked = (storedChecked === 'true');
+  let defaultChecked = (storedChecked === 'true');
+
+  if (url === '/saved-movies') {
+    defaultValue = '';
+    defaultChecked = false;
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -25,7 +31,7 @@ export default function SearchForm(props) {
       props.setPopupMessageOpen({
         isOpen: true,
         successful: false,
-        text: 'Строка поиска должа быть не менее 2х символов',
+        text: APP_MSGS.REQUEST_LENGTH_ERR,
       });
     }
   }
@@ -68,7 +74,7 @@ export default function SearchForm(props) {
             type="checkbox"
             name="toggle"
             className="searchform__toggle"
-            checked={defaultChecked}
+            defaultChecked={defaultChecked}
             onChange={props.handleShortFilms}
             id="searchform-toggle"
           />
