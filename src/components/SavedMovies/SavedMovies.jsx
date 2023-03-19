@@ -46,7 +46,6 @@ export default function SavedMovies(props) {
     }
   }
 
-  // checkbox from local storage
   useEffect(() => {
     if (shortMovies) {
       setShortMovies(true);

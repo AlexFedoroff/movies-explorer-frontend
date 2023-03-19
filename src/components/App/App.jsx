@@ -103,6 +103,7 @@ export default function App() {
         setCurrentUser({});
         setLoggedIn(false);
         localStorage.clear();
+        // setSavedMoviesList([]);
         navigate('/');
       })
       .catch((err) => setPopupMessageOpen({
@@ -162,7 +163,7 @@ export default function App() {
           text: err,
         }));
     }
-  }, [isLoggedIn]);
+  }, [currentUser, isLoggedIn]);
 
   // getting user info
   useEffect(() => {
