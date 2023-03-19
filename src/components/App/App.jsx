@@ -103,7 +103,7 @@ export default function App() {
         setCurrentUser({});
         setLoggedIn(false);
         localStorage.clear();
-        // setSavedMoviesList([]);
+        setSavedMoviesList([]);
         navigate('/');
       })
       .catch((err) => setPopupMessageOpen({
